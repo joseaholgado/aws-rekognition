@@ -37,7 +37,7 @@ Este proyecto utiliza una arquitectura basada en Flask para el backend, junto co
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/tuusuario/proyecto_ia_aws.git
+   git clone https://github.com/joseaholgado/aws-rekognition.git
 
 2. Navega al dirertorio del proyecto
 
