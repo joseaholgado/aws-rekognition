@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Archivos en S3</title>
+    <link rel="stylesheet" href="../static/css/styles.css"> 
+    <script defer type="module" src="../static/js/main.js"></script>
+</head>
+<body>
+    <h2>Archivos en el Bucket S3 (Source)</h2>
+    <ul id="fileList">
+        {% if files %}
+            {% for file in files %}
+                <li>
+                    <button onclick="selectFile('{{ file }}')">{{ file }}</button>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No se encontraron archivos.</li>
+        {% endif %}
+    </ul>
+    
+    <div id="preview"></div>
+    <button id="transformButton" style="display:none;">Transformar Imagen</button>
+
+    <h1>Subir Imagen al Bucket</h1>
+    <div id="dropZone" onclick="triggerFileInput()">Arrastra y suelta una imagen aquí, o haz clic para seleccionar</div>
+    <input type="file" id="fileInput" accept="image/*" style="display:none;">
+    <button id="uploadButton" style="display:none;">Aceptar y subir</button>
+
+    <h2>Archivos en el Bucket Destino</h2>
+    <ul id="destFileList">
+        {% if dest_files %}
+            {% for file in files %}
+                <li>
+                    <a href="/download/{{ file }}" target="_blank">{{ file }}</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+</body>
+</html>
